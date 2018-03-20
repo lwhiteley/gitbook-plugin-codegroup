@@ -28,7 +28,7 @@ module.exports = {
     // Extend templating blocks
     blocks: {
         // Author will be able to write "{% myTag %}World{% endMyTag %}"
-        myTag: {
+        mytag: {
             process: function(blk) {
                 console.log('processing myTag')
                 return "Hello "+blk.body;

@@ -8,10 +8,10 @@ console.log(pluginPath)
 test('arrays are equal', async t => {
   const result = await tester.builder()
     // .withContent('{% myTag %}World{% endMyTag %}')
-    .withLocalPlugin(pluginPath)
+    // .withLocalPlugin(pluginPath)
     .withBookJson({
       gitbook: pkg.engines.gitbook,
-      // plugins: ['codegroup']
+      plugins: ['codegroup@git+https://github.com/lwhiteley/gitbook-plugin-codegroup.git']
     })
     .create();
 
