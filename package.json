@@ -1,0 +1,28 @@
+{
+    "name": "gitbook-plugin-codegroup",
+    "description": "Sample plugin for GitBook",
+    "main": "index.js",
+    "version": "0.0.1",
+    "engines": {
+        "gitbook": ">=2.6.3"
+    },
+    "scripts": {
+        "test": "nyc ava",
+        "test:watch": "ava --watch"
+    },
+    "homepage": "https://github.com/lwhiteley/gitbook-plugin-codegroup",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lwhiteley/gitbook-plugin-codegroup.git"
+    },
+    "license": "Apache 2",
+    "bugs": {
+        "url": "https://github.com/lwhiteley/gitbook-plugin-codegroup/issues"
+    },
+    "devDependencies": {
+        "ava": "^0.25.0",
+        "gitbook-tester": "^1.4.3",
+        "nyc": "^11.6.0"
+    },
+    "dependencies": {}
+}
