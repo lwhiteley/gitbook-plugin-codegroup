@@ -2,7 +2,7 @@
   "name": "gitbook-plugin-codegroup",
   "description": "codegroup plugin for GitBook",
   "main": "index.js",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "engines": {
     "gitbook": ">=2.3.0"
   },
