@@ -24,6 +24,14 @@
     "gitbook-tester": "^1.4.3",
     "mocha": "^5.0.4"
   },
+  "keywords": [
+      "gitbook",
+      "gitbook-plugin",
+      "codegroup",
+      "plugin",
+      "codeblock",
+      "codetab"
+  ],
   "dependencies": {
     "crypto-random-string": "^1.0.0",
     "gfm-code-blocks": "^1.0.0",
