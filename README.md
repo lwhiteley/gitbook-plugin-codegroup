@@ -34,7 +34,7 @@ book.json
 
 then run
 ```bash
-gitbook install
+$ gitbook install
 ```
 
 ## Template
