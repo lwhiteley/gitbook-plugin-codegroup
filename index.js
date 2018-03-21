@@ -44,19 +44,22 @@ module.exports = {
     blocks: {
         // output sample https://codepen.io/anon/pen/GxWPaN
         codegroup: {
-            blocks: ['codetab'],
             process: function (codeGroup) {
                 const ctx = this;
-                const defaultTabName = ctx.book.config.get('pluginsConfig.codegroup.defaultTabName') || 'Code';
-                var tasks = codeGroup.blocks.map((block, i) => {
-                    const item = lib.parseBlock(block.body)[0];
+                const opts = ctx.book.config.get('pluginsConfig.codegroup');
+                const defaultTabName = get(opts, 'defaultTabName') || 'Code';
+                const parsedCodeBlocks = lib.parseBlock(codeGroup.body);
+
+                const tasks = parsedCodeBlocks.map((item, i) => {
                     let descriptor = trim(get(item, 'lang'));
                     descriptor = isEmpty(descriptor) ? defaultTabName : descriptor;
-                    const tabName = block.args.length == 0 ? descriptor : block.args[0];
-                    const tabId = `${descriptor}-${i}-${lib.getHash()}`;
-                    const selectorId = `select-${tabId}`;
                     const active = i === 0 ? ' gbcg-active' : '';
-                    return this.renderBlock('markdown', block.body)
+                    const tabName = lib.getTabName(descriptor, opts);
+                    const langName = lib.getLangName(descriptor, opts);
+                    const sanitizedBlock = item.block.replace(descriptor, langName);
+                    const tabId = `${langName}-${i}-${lib.getHash()}`;
+                    const selectorId = `select-${tabId}`;
+                    return this.renderBlock('markdown', sanitizedBlock)
                         .then(function (str) {
                             return {
                                 tabId,

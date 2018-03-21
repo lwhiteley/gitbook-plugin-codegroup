@@ -13,37 +13,59 @@ book.json
 }
 ```
 
+### Configure
+
+book.json
+```js
+"pluginsConfig": {
+    "codegroup":{
+        "defaultTabName": "Code",
+        "tabNameSeperator": "::",
+    }
+}
+```
+
+### Config Options:
+| Option | Description |
+| ------------- | ------------- |
+| defaultTabName {string} <br> **default**: `Code` | a fallback tab name if no language is specied for a fenced code block  |
+| tabNameSeperator {string}  <br> **default**: `::` | a string delimeter that differentiates the language name from the tab name  |
+
+
 then run
 ```bash
 gitbook install
 ```
 
-### Template
+## Template
 
 <pre>
 <code>
 {% codegroup %}
-{% codetab "sdk" %}```js
-    var s = console1;
-    ```
-{% codetab %}```js
-    var s = console2;
-    ```
+```js::sdk
+    var s = console.log;
+```
+```js
+    var s = console.warn;
+```
 {% endcodegroup %}
 </code>
 </pre>
 
-The `codetab` block accepts one argument. This is a custom tab name. if not specified, then the language of the code is used.
 
 #### Notes:
-
 - ebook/PDF compatible
-- For some reason gitbbok doesnt parse multiple subblocks when there is a new line after the sub block declaration.
- - pay close attention to how it is formatted in the example for it to work.
+
+### Custom Named Tabs
+
+As seen in the example above, tabs can have custom names for situations where you may need to group the same language and need to differentiate them.
+
+The example above shows a code block `js::sdk`, where `js` is the language syntax to be used and `sdk` denotes the name to be seen in the tab; we use `::` (configurable) to separate both terms.
+
 
 ### Use Case:
 - This is ideal for displaying similar usages of your code in multiple languages
- - for example an sdk that can be used in several languages
+    - for example an sdk that can be used in several languages
 
 ### Output Sample:
 ![js-tab](https://i.imgur.com/6Odrdh7.png)

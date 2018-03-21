@@ -44,6 +44,11 @@
         "type": "string",
         "default": "Code",
         "description": "a fallback tab name if no language is specied for a fenced code block"
+      },
+      "tabNameSeperator": {
+        "type": "string",
+        "default": "::",
+        "description": "a string delimeter that differentiates the language name from the tab name"
       }
     }
   }
