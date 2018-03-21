@@ -54,7 +54,7 @@ module.exports = {
                     let descriptor = trim(get(item, 'lang'));
                     descriptor = isEmpty(descriptor) ? defaultTabName : descriptor;
                     const active = i === 0 ? ' gbcg-active' : '';
-                    const tabName = lib.getTabName(descriptor, opts);
+                    const tabName = lib.getTabName(descriptor, opts) || defaultTabName;
                     const langName = lib.getLangName(descriptor, opts);
                     const sanitizedBlock = item.block.replace(descriptor, langName);
                     const tabId = `${langName}-${i}-${lib.getHash()}`;
@@ -64,7 +64,7 @@ module.exports = {
                             return {
                                 tabId,
                                 selectorId,
-                                tabContent: `<div id="${tabId}" class="gbcg-tab-item gbcb-${tabName || defaultTabName}">\n${str}</div>`,
+                                tabContent: `<div id="${tabId}" class="gbcg-tab-item gbcb-${tabName}">\n${str}</div>`,
                                 tabSelector: `<a class="gbcg-selector${active}" data-tab="${tabId}" onclick="codeGroup.showtab(event)">${tabName}</a>`,
                                 tabName,
                                 parsedBlock: item,
