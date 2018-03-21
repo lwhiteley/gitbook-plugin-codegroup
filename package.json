@@ -2,7 +2,7 @@
   "name": "gitbook-plugin-codegroup",
   "description": "codegroup plugin for GitBook",
   "main": "index.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "engines": {
     "gitbook": ">=2.3.0"
   },
@@ -25,12 +25,12 @@
     "mocha": "^5.0.4"
   },
   "keywords": [
-      "gitbook",
-      "gitbook-plugin",
-      "codegroup",
-      "plugin",
-      "codeblock",
-      "codetab"
+    "gitbook",
+    "gitbook-plugin",
+    "codegroup",
+    "plugin",
+    "codeblock",
+    "codetab"
   ],
   "dependencies": {
     "crypto-random-string": "^1.0.0",
