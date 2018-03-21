@@ -16,7 +16,7 @@ function minifyHtml(content) {
 describe('codegroup', function () {
     it('should add code group of two', function () {
         return tester.builder()
-            .withContent('{% codegroup %}\n{% codetab "sdk" %}\n```js\n var s = console1;\n```\n{% codetab "js" %}\n```js\n var s = console2;\n```{% endcodegroup %}')
+            .withContent('{% codegroup %}\n```js\n var s = console1;\n```\n```js\n var s = console2;\n```{% endcodegroup %}')
             .withLocalPlugin(localPluginPath)
             .withBookJson({
                 gitbook: pkg.engines.gitbook,
