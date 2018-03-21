@@ -7,7 +7,8 @@
     "gitbook": ">=2.3.0"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha --reporter spec --timeout 35000 __tests__"
+    "test": "node_modules/.bin/mocha --reporter spec --timeout 35000 __tests__",
+    "postversion": "git push --follow-tags"
   },
   "homepage": "https://github.com/lwhiteley/gitbook-plugin-codegroup",
   "repository": {
