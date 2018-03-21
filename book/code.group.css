@@ -18,6 +18,11 @@
     border-bottom: 0; 
 }
 
+.gbcg .gbcg-selector:hover,
+.gbcg .gbcg-selector{
+    text-decoration: none;
+}
+
 .gbcg .gbcg-selector.gbcg-active {
     background: #fff;
     border-bottom: 0; 
