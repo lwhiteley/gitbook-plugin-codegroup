@@ -1,37 +1,63 @@
+const lib = require('./lib');
+const get = require('lodash/get');
+const pretty = require('pretty');
+
 module.exports = {
 
     // Extend ebook resources and html
     website: {
         assets: "./book",
         js: [
-            "test.js"
+            'class-list.pollyfill.js',
+            "code.group.js"
         ],
         css: [
-            "test.css"
+            "code.group.css"
         ],
-        // html: {
-        //     "html:start": function() {
-        //         return "<!-- Start book "+this.options.title+" -->"
-        //     },
-        //     "html:end": function() {
-        //         return "<!-- End of book "+this.options.title+" -->"
-        //     },
-
-        //     "head:start": "<!-- head:start -->",
-        //     "head:end": "<!-- head:end -->",
-
-        //     "body:start": "<!-- body:start -->",
-        //     "body:end": "<!-- body:end -->"
-        // }
     },
 
     // Extend templating blocks
     blocks: {
-        // Author will be able to write "{% myTag %}World{% endMyTag %}"
-        mytag: {
-            process: function(blk) {
-                console.log('processing myTag')
-                return "Hello "+blk.body;
+        // output sample https://codepen.io/anon/pen/GxWPaN
+        codegroup: {
+            blocks: ['codetab'],
+            process: function (codeGroup) {
+                var tasks = codeGroup.blocks.map((block, i) => {
+                    const item = lib.parseBlock(block.body)[0];
+                    const descriptor = get(item, 'lang');
+                    const tabName = block.args.length == 0 ? descriptor : block.args[0];
+                    const tabId = `${descriptor}-${i}-${lib.getHash()}`;
+                    const selectorId = `select-${tabId}`;
+                    const active = i === 0 ? ' gbcg-active' : '';
+                    return this.renderBlock('markdown', block.body)
+                        .then(function (str) {
+                            return {
+                                tabId,
+                                selectorId,
+                                tabContent: `<div id="${tabId}" class="gbcg-tab-item gbcb-${tabName}">\n${str}</div>`,
+                                tabSelector: `<a class="gbcg-selector gbcg-clearfix${active}" data-tab="${tabId}" onclick="codeGroup.showtab(event)">${tabName}</a>`,
+                                tabName,
+                                parsedBlock: item,
+                            };
+                        })
+
+                });
+
+                return Promise.all(tasks).then((tabs) => {
+                    const content = lib.getTabContents(tabs);
+                    const selectors = lib.getTabSelectors(tabs);
+                    return pretty(`<div class="gbcg-codegroup">
+                        <div class="gbcg-tab-selectors">
+                            ${selectors}
+                        </div>
+                        <div class="gbcg-tab-contents">
+                            <div id="gbcg-tab-container"> ${tabs[0].tabContent}</div>
+                            <div class="gbcg-tab-item-cntr">
+                                ${content}
+                            </div>
+                        </div>
+                    </div>`);
+                })
             }
         }
     },
