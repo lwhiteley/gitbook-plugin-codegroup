@@ -1,13 +1,3 @@
-.gbcg-clearfix:before,
-.gbcg-clearfix:after {
-    display: table;
-    content: " ";
-}
-
-.gbcg-clearfix:after {
-    clear: both;
-}
-
 .gbcg .gbcg-selector {
     display: inline-block;
     background: #A9A9A9;
@@ -46,9 +36,4 @@
 
 .gbcg .gbcg-tab-item-cntr {
     display: none;
-}
-
-.gbcg .gbcg-tab-item pre {
-    margin-top: 0;
-    padding-top: 1em;
 }

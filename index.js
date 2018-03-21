@@ -61,7 +61,7 @@ module.exports = {
                                 tabId,
                                 selectorId,
                                 tabContent: `<div id="${tabId}" class="gbcg-tab-item gbcb-${tabName || defaultTabName}">\n${str}</div>`,
-                                tabSelector: `<a class="gbcg-selector gbcg-clearfix${active}" data-tab="${tabId}" onclick="codeGroup.showtab(event)">${tabName}</a>`,
+                                tabSelector: `<a class="gbcg-selector${active}" data-tab="${tabId}" onclick="codeGroup.showtab(event)">${tabName}</a>`,
                                 tabName,
                                 parsedBlock: item,
                             };
