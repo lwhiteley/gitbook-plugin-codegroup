@@ -1,40 +1,21 @@
 GitBook Sample Plugin
 ==============
 
-This is a model for GitBook plugins.
+### Template
 
-## How GitBook plugin works?
+<code>
+{% codegroup %}
+    {% codetab "sdk" %}
+        ```js
+        var s = console1;
+        ```
+    {% codetab "js" %}
+        ```js
+        var s = console2;
+        ```
+{% endcodegroup %}
 
-A plugin for GitBook is a node package that can be published on [NPM](http://www.npmjs.org). It has to follow the name convention: `gitbook-plugin-*name*`.
-
-### package.json
-
-#### name
-
-The package name should begin with ```gitbook-plugin-```.
-
-Examples: `gitbook-plugin-mixpanel`, `gitbook-plugin-googleanalytics`.
-
-#### engine
-
-The package.json should contain a `engine` field using [the standard norm](https://www.npmjs.org/doc/json.html#engines).
-
-```
-"engines": {
-    "gitbook": "*"
-}
-```
-
-For example if you want your plugin to supports only GitBook version supperior to 0.3.1:
-
-```
-"engines": {
-    "gitbook": ">=0.3.1"
-}
-```
-
-### entry point
-
-The plugin entry point should return an object with some metadata.
+the code tab block accepts one argument. This is a custom tab name. if not specified, then the language of the code is used.
+</code>
 
 

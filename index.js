@@ -6,13 +6,13 @@ module.exports = {
 
     // Extend ebook resources and html
     website: {
-        assets: "./book",
+        assets: './book',
         js: [
             'class-list.pollyfill.js',
-            "code.group.js"
+            'code.group.js'
         ],
         css: [
-            "code.group.css"
+            'code.group.css'
         ],
     },
 
@@ -22,6 +22,8 @@ module.exports = {
         codegroup: {
             blocks: ['codetab'],
             process: function (codeGroup) {
+                const ctx = this;
+                const defaultTabName = 'Code';
                 var tasks = codeGroup.blocks.map((block, i) => {
                     const item = lib.parseBlock(block.body)[0];
                     const descriptor = get(item, 'lang');
@@ -34,7 +36,7 @@ module.exports = {
                             return {
                                 tabId,
                                 selectorId,
-                                tabContent: `<div id="${tabId}" class="gbcg-tab-item gbcb-${tabName}">\n${str}</div>`,
+                                tabContent: `<div id="${tabId}" class="gbcg-tab-item gbcb-${tabName || defaultTabName}">\n${str}</div>`,
                                 tabSelector: `<a class="gbcg-selector gbcg-clearfix${active}" data-tab="${tabId}" onclick="codeGroup.showtab(event)">${tabName}</a>`,
                                 tabName,
                                 parsedBlock: item,
@@ -61,27 +63,4 @@ module.exports = {
             }
         }
     },
-
-    // Extend templating filters
-    filters: {
-        // Author will be able to write "{{ 'test'|myFilter }}"
-        myFilter: function(s) {
-            return "Hello "+s;
-        }
-    },
-
-    // Hook process during build
-    hooks: {
-        // For all the hooks, this represent the current generator
-
-        // This is called before the book is generated
-        "init": function() {
-            console.log("init!");
-        },
-
-        // This is called after the book generation
-        "finish": function() {
-            console.log("finish!");
-        }
-    }
 };

@@ -1,12 +1,12 @@
-var path = require('path');
-var tester = require('gitbook-tester');
-var assert = require('assert');
+const path = require('path');
+const tester = require('gitbook-tester');
+const { expect } = require('chai');
 
-var pkg = require('../package.json');
+const pkg = require('../package.json');
 
 
 describe('codegroup', function() {
-    it('should correctly replace by sup html tag', function() {
+    it('should add code group of two', function() {
         return tester.builder()
             .withContent('{% codegroup %}\n{% codetab "sdk" %}\n```js\n var s = console1;\n```\n{% codetab "js" %}\n```js\n var s = console2;\n```{% endcodegroup %}')
             .withLocalPlugin(path.join(__dirname, '..'))
@@ -15,8 +15,8 @@ describe('codegroup', function() {
             })
             .create()
             .then(function(result) {
-                // console.log(result[0].content)
-                assert.equal(result[0].content, '<p>Hello world</p>')
+                expect(result[0].content).to.include('id="js-0');
+                expect(result[0].content).to.include('id="js-1');
             });
     });
 });
