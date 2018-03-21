@@ -53,7 +53,9 @@ module.exports = {
                             ${selectors}
                         </div>
                         <div class="gbcg-tab-contents">
-                            <div id="gbcg-tab-container"> ${tabs[0].tabContent}</div>
+                            <div id="gbcg-tab-container">
+                                ${get(tabs, '[0].tabContent')}
+                            </div>
                             <div class="gbcg-tab-item-cntr">
                                 ${content}
                             </div>
