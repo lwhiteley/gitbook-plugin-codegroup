@@ -16,6 +16,10 @@
     cursor: pointer;
     padding: 5px 15px;
     border-bottom: 0; 
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    min-width: 55px;
+    text-align: center;
 }
 
 .gbcg .gbcg-selector:hover,
