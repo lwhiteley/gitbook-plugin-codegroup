@@ -35,7 +35,8 @@ module.exports = {
             'code.group.js'
         ],
         css: [
-            'code.group.css'
+            'code.group.css',
+            'code.group.ebook.css'
         ],
     },
 

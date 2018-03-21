@@ -1,0 +1,9 @@
+.gbcg #gbcg-tab-container,
+.gbcg .gbcg-tab-selectors {
+    display:none;
+}
+
+.gbcg .gbcg-tab-item-cntr,
+.gbcg .gbcg-tabname {
+    display: block;
+}

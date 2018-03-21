@@ -48,12 +48,10 @@ Use Case:
 ![js-tab](https://i.imgur.com/6Odrdh7.png)
 ![swift-tab](https://i.imgur.com/t7aQUgu.png)
 
-
 ### Similar Projects
 - [remarkable-codegroup](https://github.com/lwhiteley/remarkable-codegroup)
 
 ### TODOs:
-- expand codegroup in pdf
 - consider using a select list in mobile
 
 Pull requests are welcome
