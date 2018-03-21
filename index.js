@@ -15,6 +15,27 @@ module.exports = {
             'code.group.css'
         ],
     },
+    book: {
+        assets: './book',
+        js: [
+            'class-list.pollyfill.js',
+            'code.group.js'
+        ],
+        css: [
+            'code.group.css'
+        ],
+    },
+
+    ebook: {
+        assets: './book',
+        js: [
+            'class-list.pollyfill.js',
+            'code.group.js'
+        ],
+        css: [
+            'code.group.css'
+        ],
+    },
 
     // Extend templating blocks
     blocks: {
