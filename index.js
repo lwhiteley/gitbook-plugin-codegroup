@@ -47,7 +47,7 @@ module.exports = {
             blocks: ['codetab'],
             process: function (codeGroup) {
                 const ctx = this;
-                const defaultTabName = 'Code';
+                const defaultTabName = ctx.book.config.get('pluginsConfig.codegroup.defaultTabName') || 'Code';
                 var tasks = codeGroup.blocks.map((block, i) => {
                     const item = lib.parseBlock(block.body)[0];
                     let descriptor = trim(get(item, 'lang'));

@@ -37,5 +37,14 @@
     "gfm-code-blocks": "^1.0.0",
     "lodash": "^4.17.5",
     "pretty": "^2.0.0"
+  },
+  "gitbook": {
+      "properties": {
+          "defaultTabName": {
+              "type": "string",
+              "default": "Code",
+              "description": "a fallback tab name if no language is specied for a fenced code block"
+          }
+      }
   }
 }
