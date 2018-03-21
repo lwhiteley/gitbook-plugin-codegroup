@@ -29,7 +29,7 @@ Use Case:
 
 ### Output Sample:
 ![js-tab](https://i.imgur.com/6Odrdh7.png)
-![swift-tab](https://i.imgur.com/iQrYHEv.png)
+![swift-tab](https://i.imgur.com/t7aQUgu.png)
 
 Pull requests are welcome
 
