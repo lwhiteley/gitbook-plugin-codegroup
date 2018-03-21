@@ -1,5 +1,7 @@
 const lib = require('./lib');
 const get = require('lodash/get');
+const trim = require('lodash/trim');
+const isEmpty = require('lodash/isEmpty');
 const pretty = require('pretty');
 
 module.exports = {
@@ -47,7 +49,8 @@ module.exports = {
                 const defaultTabName = 'Code';
                 var tasks = codeGroup.blocks.map((block, i) => {
                     const item = lib.parseBlock(block.body)[0];
-                    const descriptor = get(item, 'lang');
+                    let descriptor = trim(get(item, 'lang'));
+                    descriptor = isEmpty(descriptor) ? defaultTabName : descriptor;
                     const tabName = block.args.length == 0 ? descriptor : block.args[0];
                     const tabId = `${descriptor}-${i}-${lib.getHash()}`;
                     const selectorId = `select-${tabId}`;
@@ -69,7 +72,7 @@ module.exports = {
                 return Promise.all(tasks).then((tabs) => {
                     const content = lib.getTabContents(tabs);
                     const selectors = lib.getTabSelectors(tabs);
-                    return pretty(`<div class="gbcg-codegroup">
+                    return pretty(`<div class="gbcg gbcg-codegroup">
                         <div class="gbcg-tab-selectors">
                             ${selectors}
                         </div>

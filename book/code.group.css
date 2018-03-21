@@ -8,7 +8,7 @@
     clear: both;
 }
 
-.gbcg-selector {
+.gbcg .gbcg-selector {
     display: inline-block;
     background: #A9A9A9;
     border: 1px solid #A9A9A9;
@@ -18,7 +18,7 @@
     border-bottom: 0; 
 }
 
-.gbcg-selector.gbcg-active {
+.gbcg .gbcg-selector.gbcg-active {
     background: #fff;
     border-bottom: 0; 
     color: #000;
@@ -27,11 +27,11 @@
     box-shadow: 0px -1px 5px #aaaaaa;
 }
 
-.gbcg-tab-item-cntr {
+.gbcg .gbcg-tab-item-cntr {
     display: none;
 }
 
-.gbcg-tab-item pre {
+.gbcg .gbcg-tab-item pre {
     margin-top: 0;
     padding-top: 1em;
 }
