@@ -1,6 +1,20 @@
 GitBook CodeGroup Plugin
 ==============
 
+## Add Plugin
+
+book.json
+```js
+{
+    "plugin": ["codegroup"]
+}
+```
+
+then run
+```bash
+gitbook install
+```
+
 ### Template
 
 <pre>
