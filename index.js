@@ -10,7 +10,6 @@ module.exports = {
     website: {
         assets: './book',
         js: [
-            'class-list.pollyfill.js',
             'code.group.js'
         ],
         css: [
@@ -20,7 +19,6 @@ module.exports = {
     book: {
         assets: './book',
         js: [
-            'class-list.pollyfill.js',
             'code.group.js'
         ],
         css: [
@@ -31,7 +29,6 @@ module.exports = {
     ebook: {
         assets: './book',
         js: [
-            'class-list.pollyfill.js',
             'code.group.js'
         ],
         css: [
@@ -65,7 +62,7 @@ module.exports = {
                                 tabId,
                                 selectorId,
                                 tabContent: `<div id="${tabId}" class="gbcg-tab-item gbcb-${tabName}">\n${str}</div>`,
-                                tabSelector: `<a class="gbcg-selector${active}" data-tab="${tabId}" onclick="codeGroup.showtab(event)">${tabName}</a>`,
+                                tabSelector: `<a class="gbcg-selector${active}" data-tab="${tabId}">${tabName}</a>`,
                                 tabName,
                                 parsedBlock: item,
                             };

@@ -26,3 +26,4 @@ node_modules
 .nyc_output
 tmp
 .DS_Store
+_book
