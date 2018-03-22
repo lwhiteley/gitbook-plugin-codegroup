@@ -3,6 +3,7 @@ const get = require('lodash/get');
 const trim = require('lodash/trim');
 const isEmpty = require('lodash/isEmpty');
 const pretty = require('pretty');
+const md5 = require('blueimp-md5');
 
 module.exports = {
 
@@ -46,6 +47,7 @@ module.exports = {
                 const opts = ctx.book.config.get('pluginsConfig.codegroup');
                 const defaultTabName = get(opts, 'defaultTabName') || 'Code';
                 const parsedCodeBlocks = lib.parseBlock(codeGroup.body);
+                const blockHash = md5(codeGroup.body);
 
                 const tasks = parsedCodeBlocks.map((item, i) => {
                     let descriptor = trim(get(item, 'lang'));
@@ -73,7 +75,7 @@ module.exports = {
                 return Promise.all(tasks).then((tabs) => {
                     const content = lib.getTabContents(tabs);
                     const selectors = lib.getTabSelectors(tabs);
-                    return pretty(`<div class="gbcg gbcg-codegroup">
+                    return pretty(`<div id="${blockHash}" class="gbcg gbcg-codegroup">
                         <div class="gbcg-tab-selectors">
                             ${selectors}
                         </div>

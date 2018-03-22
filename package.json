@@ -33,6 +33,7 @@
     "codetab"
   ],
   "dependencies": {
+    "blueimp-md5": "^2.10.0",
     "crypto-random-string": "^1.0.0",
     "gfm-code-blocks": "^1.0.0",
     "lodash": "^4.17.5",
@@ -49,6 +50,11 @@
         "type": "string",
         "default": "::",
         "description": "a string delimeter that differentiates the language name from the tab name"
+      },
+      "rememberTabs": {
+        "type": "boolean",
+        "default": "false",
+        "description": "a boolean to remember the tab selected, given the info in the tabs havent changed"
       }
     }
   }
