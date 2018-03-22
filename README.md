@@ -18,7 +18,7 @@ then run
 $ gitbook install
 ```
 
-### Configure
+### Configure (Optional Step)
 
 book.json
 ```js
@@ -26,6 +26,7 @@ book.json
     "codegroup":{
         "defaultTabName": "Code",
         "tabNameSeperator": "::",
+        "rememberTabs": true
     }
 }
 ```
@@ -35,6 +36,7 @@ book.json
 | ------------- | ------------- |
 | defaultTabName {string} <br> **default**: `Code` | a fallback tab name if no language is specied for a fenced code block  |
 | tabNameSeperator {string}  <br> **default**: `::` | a string delimeter that differentiates the language name from the tab name  |
+| rememberTabs {boolean}  <br> **default**: `false` |determines if the plugin will remember the selected tab, given the info in the codegroup has not changed  |
 
 ## Template
 
@@ -54,6 +56,7 @@ book.json
 
 #### Notes:
 - ebook/PDF compatible
+- The goal of this project is to write codegroups/codetabs as close to markdown as possible
 
 ### Custom Named Tabs
 
@@ -72,6 +75,7 @@ The example above shows a code block `js::sdk`, where `js` is the language synta
 
 ### Similar Projects
 - [remarkable-codegroup](https://github.com/lwhiteley/remarkable-codegroup)
+- [GitbookIO/plugin-codetabs](https://github.com/GitbookIO/plugin-codetabs)
 
 ### TODOs:
 - consider using a select list in mobile

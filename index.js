@@ -48,8 +48,8 @@ module.exports = {
                 const opts = ctx.book.config.get('pluginsConfig.codegroup');
                 const defaultTabName = get(opts, 'defaultTabName') || 'Code';
                 const parsedCodeBlocks = lib.parseBlock(codeGroup.body);
-                const blockHash = md5(codeGroup.body);
-                const shouldRememberTabs = boolean(opts.rememberTabs);
+                const blockHash = lib.getHash(codeGroup.body);
+                const shouldRememberTabs = boolean(get(opts, 'rememberTabs', false));
 
                 const tasks = parsedCodeBlocks.map((item, i) => {
                     let descriptor = trim(get(item, 'lang'));
@@ -58,7 +58,7 @@ module.exports = {
                     const tabName = lib.getTabName(descriptor, opts) || defaultTabName;
                     const langName = lib.getLangName(descriptor, opts);
                     const sanitizedBlock = item.block.replace(descriptor, langName);
-                    const tabId = `${langName}-${i}-${lib.getHash()}`;
+                    const tabId = `${langName}-${i}-${lib.getHash(sanitizedBlock)}`;
                     const selectorId = `select-${tabId}`;
                     return this.renderBlock('markdown', sanitizedBlock)
                         .then(function (str) {
@@ -66,7 +66,7 @@ module.exports = {
                                 tabId,
                                 selectorId,
                                 tabContent: `<div id="${tabId}" class="gbcg-tab-item gbcb-${tabName}">\n${str}</div>`,
-                                tabSelector: `<a class="gbcg-selector${active}" data-tab="${tabId}">${tabName}</a>`,
+                                tabSelector: `<a id="${selectorId}" class="gbcg-selector${active}" data-tab="${tabId}">${tabName}</a>`,
                                 tabName,
                                 parsedBlock: item,
                             };
