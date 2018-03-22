@@ -19,7 +19,9 @@ require([
         var $tab = $('#' + tabId);
         $container.html($tab.html());
         $selector.addClass(active);
-        gitbook.storage.set(getStorageKey($codeGroup.attr('id')), { selected: selectorId });
+        if ($codeGroup.attr('data-remember-tabs') !== 'true') {   
+            gitbook.storage.set(getStorageKey($codeGroup.attr('id')), { selected: selectorId });
+        }
     };
 
     $('.gbcg-selector').click(self.showtab);
