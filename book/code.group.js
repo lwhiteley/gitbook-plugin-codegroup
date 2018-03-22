@@ -4,9 +4,7 @@ require([
 ], function ($, gitbook) {
     var self = self || {};
     var active = 'gbcg-active';
-
-    console.log(gitbook);
-
+    
     self.showtab = function showtab(event) {
         event.preventDefault(); event.stopPropagation();
         // removeActive();
