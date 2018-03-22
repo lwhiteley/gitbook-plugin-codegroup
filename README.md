@@ -13,6 +13,11 @@ book.json
 }
 ```
 
+then run
+```bash
+$ gitbook install
+```
+
 ### Configure
 
 book.json
@@ -30,12 +35,6 @@ book.json
 | ------------- | ------------- |
 | defaultTabName {string} <br> **default**: `Code` | a fallback tab name if no language is specied for a fenced code block  |
 | tabNameSeperator {string}  <br> **default**: `::` | a string delimeter that differentiates the language name from the tab name  |
-
-
-then run
-```bash
-$ gitbook install
-```
 
 ## Template
 
