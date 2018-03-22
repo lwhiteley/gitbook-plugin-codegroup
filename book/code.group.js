@@ -19,7 +19,7 @@ require([
         var $tab = $('#' + tabId);
         $container.html($tab.html());
         $selector.addClass(active);
-        if ($codeGroup.attr('data-remember-tabs') !== 'true') {   
+        if ($codeGroup.attr('data-remember-tabs') === 'true') {   
             gitbook.storage.set(getStorageKey($codeGroup.attr('id')), { selected: selectorId });
         }
     };
