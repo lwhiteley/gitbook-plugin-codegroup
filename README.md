@@ -55,7 +55,7 @@ book.json
 
 ##### Args
 
-`codegroup` takes one arguments `rememberTabs` (`boolean`). This overrides the global `rememberTabs` config passed to `pluginsConfig.codegroup.rememberTabs`.
+`codegroup` takes one argument `rememberTabs` (`boolean`). This overrides the global `rememberTabs` config passed to `pluginsConfig.codegroup.rememberTabs`.
 
 **example**:
 <pre>
