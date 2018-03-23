@@ -53,6 +53,24 @@ book.json
 </code>
 </pre>
 
+##### Args
+
+`codegroup` takes one arguments `rememberTabs` (`boolean`). This overrides the global `rememberTabs` config passed to `pluginsConfig.codegroup.rememberTabs`.
+
+**example**:
+<pre>
+<code>
+{% codegroup "false" %}
+```js::nodejs
+    var s = "sample";
+```
+```swift
+    let s: String = "sample";
+```
+{% endcodegroup %}
+</code>
+</pre>
+
 
 #### Notes:
 - ebook/PDF compatible

@@ -49,7 +49,7 @@ module.exports = {
                 const defaultTabName = get(opts, 'defaultTabName') || 'Code';
                 const parsedCodeBlocks = lib.parseBlock(codeGroup.body);
                 const blockHash = lib.getHash(codeGroup.body);
-                const shouldRememberTabs = boolean(get(opts, 'rememberTabs', false));
+                const shouldRememberTabs = codeGroup.args.length == 0 ? boolean(get(opts, 'rememberTabs', false)) : boolean(codeGroup.args[0]);
 
                 const tasks = parsedCodeBlocks.map((item, i) => {
                     let descriptor = trim(get(item, 'lang'));
