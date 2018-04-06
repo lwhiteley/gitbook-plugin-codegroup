@@ -1,6 +1,7 @@
 require([
-    'jquery'
-], function ($) {
+    'jquery',
+    'gitbook',
+], function ($, gitbook) {
     var self = self || {};
     var active = 'gbcg-active';
     var storageKey = 'codegroup';
@@ -33,25 +34,27 @@ require([
         gitbook.storage.set(storageKey, codeGroupStore);
     };
 
-    $('.gbcg-selector').click(self.showtab);
+    gitbook.events.bind("start", function () {
+        $('.gbcg-selector').click(self.showtab);
 
-    var $codeGroups = $('.gbcg-codegroup');
-
-    $codeGroups.each(function () {
-        var $group = $(this);
-        var codeGroupStore = getCodeGroupStore();
-        var id = $group.attr('id');
-        if ($group.attr('data-remember-tabs') !== 'true') {
-            delete codeGroupStore.rememberTabs[id];
-            gitbook.storage.set(storageKey, codeGroupStore);
-            return;
-        }
-        var selectorId = codeGroupStore.rememberTabs[id];
-        if (selectorId) {
-            var $selector = $group.find('#' + selectorId);
-            $selector.click();
-        }
+        var $codeGroups = $('.gbcg-codegroup');
+    
+        $codeGroups.each(function () {
+            var $group = $(this);
+            var codeGroupStore = getCodeGroupStore();
+            var id = $group.attr('id');
+            if ($group.attr('data-remember-tabs') !== 'true') {
+                delete codeGroupStore.rememberTabs[id];
+                gitbook.storage.set(storageKey, codeGroupStore);
+                return;
+            }
+            var selectorId = codeGroupStore.rememberTabs[id];
+            if (selectorId) {
+                var $selector = $group.find('#' + selectorId);
+                $selector.click();
+            }
+        });
     });
-
+    
     return self;
 });
