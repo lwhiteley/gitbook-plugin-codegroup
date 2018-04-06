@@ -46,11 +46,12 @@ module.exports = {
             process: function (codeGroup) {
                 const ctx = this;
                 const opts = ctx.book.config.get('pluginsConfig.codegroup');
+                const parsedCodeBlocks = lib.parseBlock(codeGroup.body);
+                const blockHash = lib.getHash(codeGroup.body);
+                
                 const defaultTabName = get(codeGroup, 'kwargs.defaultTabName')
                     || get(opts, 'defaultTabName')
                     || 'Code';
-                const parsedCodeBlocks = lib.parseBlock(codeGroup.body);
-                const blockHash = lib.getHash(codeGroup.body);
                 const shouldRememberTabs = get(codeGroup, 'kwargs.rememberTabs')
                     || boolean(get(opts, 'rememberTabs', false));
 

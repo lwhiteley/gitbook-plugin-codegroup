@@ -56,13 +56,14 @@ book.json
 ##### Args
 
 `codegroup` takes two optional named arguments: 
-1.`rememberTabs` (`boolean`): This overrides the global `rememberTabs` config passed to `pluginsConfig.codegroup.rememberTabs`.
-1. `defaultTabName` (`string`): A default tab name to use for the specific code group. Overrides value in `pluginsConfig.codegroup.defaultTabName`
+
+- `rememberTabs` (`boolean`): This overrides the global `rememberTabs` config passed to `pluginsConfig.codegroup.rememberTabs`.
+- `defaultTabName` (`string`): A default tab name to use for the specific code group. Overrides value in `pluginsConfig.codegroup.defaultTabName`
 
 **example**:
 <pre>
 <code>
-{% codegroup rememberTabs=true, defaultTabNAme="Snippet" %}
+{% codegroup rememberTabs=true, defaultTabName="Snippet" %}
 ```js::nodejs
     var s = "sample";
 ```
