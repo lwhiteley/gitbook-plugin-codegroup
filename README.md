@@ -85,16 +85,19 @@ As seen in the example above, tabs can have custom names for situations where it
 
 The example above shows a code block `js::sdk`, where `js` is the language syntax to be used and `sdk` denotes the name to be seen in the tab; `::` (configurable) is used to separate both terms.
 
+### Custom Print Titles
+
 It is also possible to supply a `Print Title` using a second `tabNameSeperator`
 
-**examples**:
+**Examples**:
 
-- **Explicit** `js::sdk::Javascript SDK`: When converted to pdf, `Javascript SDK` will be placed above the code block
-- **Syntax+Print Only** `js::::Javascript SDK`: It is possible to omit the `custom tab name` by using a double `tabNameSeperator`
-- **Print Only** `::::Javascript SDK`: It is possible to omit the `syntax name` and `custom tab name` by using a double `tabNameSeperator`
+| Example | Description |
+| ------------- | ------------- |
+| **Explicit** <br/><br/> `js::sdk::Javascript SDK`| When converted to pdf, `Javascript SDK` will be placed above the code block |
+| **Syntax+Print Only** <br/><br/>`js::::Javascript SDK`| It is possible to omit the `custom tab name` by using a double `tabNameSeperator` |
+| **Print Only** <br/><br/>`::::Javascript SDK` |It is possible to omit the `syntax name` and `custom tab name` by using a double `tabNameSeperator` |
 
-
-### Use Case:
+### CodeGroup Use Case:
 - This is ideal for displaying similar usages of the same code in multiple languages
     - for example an sdk that can be used in several languages
 
