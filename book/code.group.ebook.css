@@ -3,7 +3,9 @@
     display:none;
 }
 
-.gbcg .gbcg-tab-item-cntr,
-.gbcg .gbcg-tabname {
-    display: block;
+.gbcg-tabname,
+.gbcg .gbcg-tab-item-cntr {
+    visibility: visible;
+    position: relative;
+    left: 0;
 }
