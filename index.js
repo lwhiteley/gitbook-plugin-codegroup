@@ -62,19 +62,21 @@ module.exports = {
                     let {langName, tabName, printTitle} = lib.parseDescriptor(descriptor, opts);
                     tabName = tabName || langName || defaultTabName;
                     printTitle = printTitle || tabName;
-                    const sanitizedBlock = item.block.replace(descriptor, langName);
-                    const tabId = `${langName}-${i}-${lib.getHash(sanitizedBlock)}`;
+                    item.sanitizedBlock = item.block.replace(descriptor, langName);
+                    const tabId = `${langName}-${i}-${lib.getHash(item.sanitizedBlock)}`;
                     const selectorId = `select-${tabId}`;
-                    return this.renderBlock('markdown', sanitizedBlock)
+                    return this.renderBlock('markdown', item.sanitizedBlock)
                         .then(function (str) {
                             return {
                                 tabId,
                                 selectorId,
                                 tabContent: `<div id="${tabId}" class="gbcg-tab-item gbcb-${tabName}">\n${str}</div>`,
                                 tabSelector: `<a id="${selectorId}" class="gbcg-selector${active}" data-tab="${tabId}">${tabName}</a>`,
+                                langName,
                                 tabName,
                                 printTitle,
                                 parsedBlock: item,
+                                renderedBlock: str,
                             };
                         })
 
