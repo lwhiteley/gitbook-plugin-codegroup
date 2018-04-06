@@ -9,7 +9,7 @@ GitBook CodeGroup Plugin
 book.json
 ```js
 {
-    "plugin": ["codegroup"]
+    "plugins": ["codegroup"]
 }
 ```
 
@@ -55,9 +55,9 @@ book.json
 
 ##### Args
 
-`codegroup` takes two optional named arguments: 
+`codegroup` takes optional named arguments: 
 
-- `rememberTabs` (`boolean`): This overrides the global `rememberTabs` config passed to `pluginsConfig.codegroup.rememberTabs`.
+- `rememberTabs` (`boolean`): Overrides value in `pluginsConfig.codegroup.rememberTabs`.
 - `defaultTabName` (`string`): A default tab name to use for the specific code group. Overrides value in `pluginsConfig.codegroup.defaultTabName`
 
 **example**:
@@ -81,13 +81,13 @@ book.json
 
 ### Custom Named Tabs
 
-As seen in the example above, tabs can have custom names for situations where you may need to group the same language and need to differentiate them.
+As seen in the example above, tabs can have custom names for situations where it is required to group the same language and there is need to differentiate them.
 
-The example above shows a code block `js::sdk`, where `js` is the language syntax to be used and `sdk` denotes the name to be seen in the tab; we use `::` (configurable) to separate both terms.
+The example above shows a code block `js::sdk`, where `js` is the language syntax to be used and `sdk` denotes the name to be seen in the tab; `::` (configurable) is used to separate both terms.
 
 
 ### Use Case:
-- This is ideal for displaying similar usages of your code in multiple languages
+- This is ideal for displaying similar usages of the same code in multiple languages
     - for example an sdk that can be used in several languages
 
 ### Output Sample:
