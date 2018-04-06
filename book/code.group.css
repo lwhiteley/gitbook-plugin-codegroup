@@ -1,15 +1,17 @@
+.gbcg-tab-selectors {
+    border-bottom: 1px solid #000;
+}
+
 .gbcg .gbcg-selector {
     display: inline-block;
-    background: #A9A9A9;
-    border: 1px solid #A9A9A9;
-    color: #fff;
+    color: #000;
     cursor: pointer;
     padding: 5px 15px;
-    border-bottom: 0; 
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    min-width: 55px;
+    min-width: 100px;
     text-align: center;
+    margin-left: -4px;
+    font-weight: bold;
+    background-color: #f7f7f7;
 }
 
 .gbcg .gbcg-selector:hover,
@@ -18,20 +20,18 @@
 }
 
 .gbcg .gbcg-selector.gbcg-active {
-    background: #fff;
-    border-bottom: 0; 
     color: #000;
     border-width: 2px;
-    font-weight: bold;
-    box-shadow: 0px -1px 5px #aaaaaa;
+    border-bottom: 2px solid #7F0000;
+    border-top: 2px solid #7F0000;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal .gbcg a.gbcg-selector {
-    color: #fff;
+    color: #000;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal .gbcg a.gbcg-selector.gbcg-active {
-    color: #000;
+    color: #7F0000;
 }
 
 /* 
