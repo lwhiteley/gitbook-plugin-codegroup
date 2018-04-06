@@ -34,8 +34,10 @@ require([
         gitbook.storage.set(storageKey, codeGroupStore);
     };
 
-    gitbook.events.bind("page.change", function () {
-        $('.gbcg-selector').click(self.showtab);
+    var setup = function () {
+        var $selectors = $('.gbcg-selector');
+        $selectors.unbind('click', self.showtab);
+        $selectors.click(self.showtab);
 
         var $codeGroups = $('.gbcg-codegroup');
     
@@ -54,7 +56,9 @@ require([
                 $selector.click();
             }
         });
-    });
-    
+    };
+
+    gitbook.events.bind('page.change', setup);
+    setup();
     return self;
 });
