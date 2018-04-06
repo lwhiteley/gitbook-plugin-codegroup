@@ -95,7 +95,7 @@ It is also possible to supply a `Print Title` using a second `tabNameSeperator`
 | ------------- | ------------- |
 | **Explicit** <br/><br/> `js::sdk::Javascript SDK`| When converted to pdf, `Javascript SDK` will be placed above the code block |
 | **Syntax+Print Only** <br/><br/>`js::::Javascript SDK`| It is possible to omit the `custom tab name` by using a double `tabNameSeperator` |
-| **TabName+Print Only** <br/><br/>`::sdk::Javascript SDK`| It is possible to omit the `syntax name` to only defined the `custom tab name` and `print title` only |
+| **TabName+Print Only** <br/><br/>`::sdk::Javascript SDK`| It is possible to omit the `syntax name` to only define the `custom tab name` and `print title` |
 | **Print Only** <br/><br/>`::::Javascript SDK` |It is possible to omit the `syntax name` and `custom tab name` by using a double `tabNameSeperator` |
 
 ### CodeGroup Use Case:
