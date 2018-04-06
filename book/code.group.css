@@ -25,6 +25,10 @@
     border-bottom: 2px solid #7F0000;
     border-top: 2px solid #7F0000;
 }
+.color-theme-2 .gbcg .gbcg-selector.gbcg-active{
+    border-bottom: 2px solid #fff;
+    border-top: 2px solid #fff;
+}
 
 .book .book-body .page-wrapper .page-inner section.normal .gbcg a.gbcg-selector {
     color: #000;
