@@ -48,7 +48,7 @@ module.exports = {
                 const opts = ctx.book.config.get('pluginsConfig.codegroup');
                 const parsedCodeBlocks = lib.parseBlock(codeGroup.body);
                 const blockHash = lib.getHash(codeGroup.body);
-                
+
                 const defaultTabName = get(codeGroup, 'kwargs.defaultTabName')
                     || get(opts, 'defaultTabName')
                     || 'Code';
@@ -61,6 +61,7 @@ module.exports = {
                     const active = i === 0 ? ' gbcg-active' : '';
                     const langName = lib.getLangName(descriptor, opts);
                     const tabName = lib.getTabName(descriptor, opts) || langName || defaultTabName;
+                    const printTitle = lib.getPrintTitle(descriptor, opts) || tabName;
                     const sanitizedBlock = item.block.replace(descriptor, langName);
                     const tabId = `${langName}-${i}-${lib.getHash(sanitizedBlock)}`;
                     const selectorId = `select-${tabId}`;
@@ -72,6 +73,7 @@ module.exports = {
                                 tabContent: `<div id="${tabId}" class="gbcg-tab-item gbcb-${tabName}">\n${str}</div>`,
                                 tabSelector: `<a id="${selectorId}" class="gbcg-selector${active}" data-tab="${tabId}">${tabName}</a>`,
                                 tabName,
+                                printTitle,
                                 parsedBlock: item,
                             };
                         })
