@@ -65,12 +65,13 @@ module.exports = {
                     printTitle = printTitle || tabName;
                     item.sanitizedBlock = item.block.replace(descriptor, langName);
 
-                    const tabId = `${langName}-${i}-${lib.getHash(item.sanitizedBlock)}`;
+                    const tabId = `${langName}-${i}-${lib.getHash(`${i}:${item.sanitizedBlock}`)}`;
                     const selectorId = `select-${tabId}`;
 
                     return this.renderBlock('markdown', item.sanitizedBlock)
                         .then(function (str) {
                             return {
+                                index: i,
                                 tabId,
                                 selectorId,
                                 tabContent: `<div id="${tabId}" class="gbcg-tab-item gbcb-${tabName}">\n${str}</div>`,
