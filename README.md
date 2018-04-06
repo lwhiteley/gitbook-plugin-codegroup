@@ -103,8 +103,8 @@ It is also possible to supply a `Print Title` using a second `tabNameSeperator`
     - for example an sdk that can be used in several languages
 
 ### Output Sample:
-![js-tab](https://i.imgur.com/6Odrdh7.png)
-![swift-tab](https://i.imgur.com/t7aQUgu.png)
+![js-tab](https://i.imgur.com/UhTS6j9.png)
+![swift-tab](https://i.imgur.com/E08d0oV.png)
 
 ### Similar Projects
 - [remarkable-codegroup](https://github.com/lwhiteley/remarkable-codegroup)
