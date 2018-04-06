@@ -3,9 +3,11 @@ require([
 ], function ($) {
     var self = self || {};
     var active = 'gbcg-active';
+    var storageKey = 'codegroup';
 
-    var getStorageKey = function (id) {
-        return 'codegroup.' + id;
+    var getCodeGroupStore = function () {
+        var codeGroupStore = gitbook.storage.get(storageKey);
+        return codeGroupStore || {rememberTabs: {}};
     };
 
     self.showtab = function showtab(event) {
@@ -19,9 +21,16 @@ require([
         var $tab = $('#' + tabId);
         $container.html($tab.html());
         $selector.addClass(active);
+
+        var codeGroupStore = getCodeGroupStore();
+        var codeGroupId = $codeGroup.attr('id');
+
         if ($codeGroup.attr('data-remember-tabs') === 'true') {   
-            gitbook.storage.set(getStorageKey($codeGroup.attr('id')), { selected: selectorId });
+            codeGroupStore.rememberTabs[codeGroupId] = selectorId;
+        } else {
+            delete codeGroupStore.rememberTabs[codeGroupId];
         }
+        gitbook.storage.set(storageKey, codeGroupStore);
     };
 
     $('.gbcg-selector').click(self.showtab);
@@ -30,13 +39,16 @@ require([
 
     $codeGroups.each(function () {
         var $group = $(this);
+        var codeGroupStore = getCodeGroupStore();
+        var id = $group.attr('id');
         if ($group.attr('data-remember-tabs') !== 'true') {
+            delete codeGroupStore.rememberTabs[id];
+            gitbook.storage.set(storageKey, codeGroupStore);
             return;
         }
-        var storageKey = getStorageKey($group.attr('id'));
-        var tabSettings = gitbook.storage.get(storageKey);
-        if (tabSettings && tabSettings.selected) {
-            var $selector = $group.find('#' + tabSettings.selected);
+        var selectorId = codeGroupStore.rememberTabs[id];
+        if (selectorId) {
+            var $selector = $group.find('#' + selectorId);
             $selector.click();
         }
     });
