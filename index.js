@@ -59,9 +59,9 @@ module.exports = {
                     let descriptor = trim(get(item, 'lang'));
                     descriptor = isEmpty(descriptor) ? defaultTabName : descriptor;
                     const active = i === 0 ? ' gbcg-active' : '';
-                    const langName = lib.getLangName(descriptor, opts);
-                    const tabName = lib.getTabName(descriptor, opts) || langName || defaultTabName;
-                    const printTitle = lib.getPrintTitle(descriptor, opts) || tabName;
+                    let {langName, tabName, printTitle} = lib.parseDescriptor(descriptor, opts);
+                    tabName = tabName || langName || defaultTabName;
+                    printTitle = printTitle || tabName;
                     const sanitizedBlock = item.block.replace(descriptor, langName);
                     const tabId = `${langName}-${i}-${lib.getHash(sanitizedBlock)}`;
                     const selectorId = `select-${tabId}`;
