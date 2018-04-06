@@ -56,15 +56,17 @@ module.exports = {
                     || boolean(get(opts, 'rememberTabs', false));
 
                 const tasks = parsedCodeBlocks.map((item, i) => {
-                    let descriptor = trim(get(item, 'lang'));
-                    descriptor = isEmpty(descriptor) ? defaultTabName : descriptor;
                     const active = i === 0 ? ' gbcg-active' : '';
+                    const descriptor = isEmpty(descriptor) ? defaultTabName : trim(get(item, 'lang'));
                     let {langName, tabName, printTitle} = lib.parseDescriptor(descriptor, opts);
+
                     tabName = tabName || langName || defaultTabName;
                     printTitle = printTitle || tabName;
                     item.sanitizedBlock = item.block.replace(descriptor, langName);
+
                     const tabId = `${langName}-${i}-${lib.getHash(item.sanitizedBlock)}`;
                     const selectorId = `select-${tabId}`;
+                    
                     return this.renderBlock('markdown', item.sanitizedBlock)
                         .then(function (str) {
                             return {
