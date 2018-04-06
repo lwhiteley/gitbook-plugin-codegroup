@@ -34,7 +34,7 @@ require([
         gitbook.storage.set(storageKey, codeGroupStore);
     };
 
-    gitbook.events.bind("start", function () {
+    gitbook.events.bind("page.change", function () {
         $('.gbcg-selector').click(self.showtab);
 
         var $codeGroups = $('.gbcg-codegroup');
