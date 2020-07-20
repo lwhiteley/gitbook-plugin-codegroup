@@ -8,7 +8,10 @@
   },
   "scripts": {
     "test": "node_modules/.bin/mocha --reporter spec --timeout 35000 __tests__",
-    "postversion": "git push --follow-tags"
+    "postpublish": "git push --follow-tags && run-s changelog && git push",
+    "release:patch": "npm version patch && npm publish --access public",
+    "release:minor": "npm version minor && npm publish --access public",
+    "release:major": "npm version major && npm publish --access public"
   },
   "homepage": "https://plugins.gitbook.com/plugin/codegroup",
   "repository": {
@@ -36,7 +39,7 @@
     "blueimp-md5": "^2.10.0",
     "boolean": "^0.1.3",
     "gfm-code-blocks": "^1.0.0",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.19",
     "pretty": "^2.0.0"
   },
   "gitbook": {
